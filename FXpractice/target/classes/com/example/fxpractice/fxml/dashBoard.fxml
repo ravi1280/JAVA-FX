@@ -3,6 +3,11 @@
 <?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
 <?import java.lang.String?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Separator?>
@@ -16,8 +21,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="780.0" prefWidth="1024.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="com.example.fxpractice.controller.DashBoardController">
+<AnchorPane id="AnchorPane" prefHeight="780.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.fxpractice.controller.DashBoardController">
    <children>
       <BorderPane layoutX="8.0" prefHeight="689.0" prefWidth="1030.0" AnchorPane.bottomAnchor="-9.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <left>
@@ -53,6 +57,9 @@
                            <font>
                               <Font name="Arial Rounded MT Bold" size="12.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Button alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="202.0" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="OrderProcess" textFill="WHITE">
                            <graphic>
@@ -61,6 +68,9 @@
                            <font>
                               <Font name="Arial Rounded MT Bold" size="12.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Button alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="203.0" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="Analytics" textFill="WHITE">
                            <graphic>
@@ -69,6 +79,9 @@
                            <font>
                               <Font name="Arial Rounded MT Bold" size="12.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Button alignment="BASELINE_LEFT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="206.0" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="Withdrawals" textFill="WHITE">
                            <graphic>
@@ -77,6 +90,9 @@
                            <font>
                               <Font name="Arial Rounded MT Bold" size="12.0" />
                            </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                         <Separator prefWidth="200.0" />
                         <Pane prefWidth="200.0" />
@@ -91,6 +107,9 @@
                            <VBox.margin>
                               <Insets bottom="10.0" />
                            </VBox.margin>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                      </children>
                      <padding>
@@ -105,7 +124,7 @@
                <children>
                   <HBox prefHeight="50.0" prefWidth="200.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="50.0" prefWidth="211.0" text="Prepared Order" textFill="WHITE">
+                        <Label alignment="CENTER" prefHeight="50.0" prefWidth="211.0" text="Prepared Order">
                            <font>
                               <Font name="Arial Rounded MT Bold" size="15.0" />
                            </font>
@@ -115,8 +134,11 @@
                         </Label>
                         <ImageView fitHeight="58.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
                            <image>
-                              <Image url="@../image/free.png" />
+                              <Image url="@../image/mixing.png" />
                            </image>
+                           <HBox.margin>
+                              <Insets right="10.0" top="5.0" />
+                           </HBox.margin>
                         </ImageView>
                      </children>
                      <VBox.margin>
@@ -194,13 +216,27 @@
                         </Label>
                         <HBox prefHeight="15.0" prefWidth="208.0" spacing="50.0">
                            <children>
-                              <Button mnemonicParsing="false" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="-" />
+                              <Button mnemonicParsing="false" styleClass="amount-icon" stylesheets="@../style/dashBoard.css">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" iconName="MINUS" />
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                               <Label text="5">
                                  <font>
                                     <Font name="Arial Rounded MT Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <Button mnemonicParsing="false" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="+" />
+                              <Button mnemonicParsing="false" styleClass="amount-icon" stylesheets="@../style/dashBoard.css">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                            </children>
                            <padding>
                               <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
@@ -267,13 +303,27 @@
                         </Label>
                         <HBox prefHeight="15.0" prefWidth="208.0" spacing="50.0">
                            <children>
-                              <Button mnemonicParsing="false" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="-" />
+                              <Button mnemonicParsing="false" styleClass="amount-icon" stylesheets="@../style/dashBoard.css">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" iconName="MINUS" />
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                               <Label text="5">
                                  <font>
                                     <Font name="Arial Rounded MT Bold" size="15.0" />
                                  </font>
                               </Label>
-                              <Button mnemonicParsing="false" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="+" />
+                              <Button mnemonicParsing="false" styleClass="amount-icon" stylesheets="@../style/dashBoard.css">
+                                 <graphic>
+                                    <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
+                                 </graphic>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
                            </children>
                            <padding>
                               <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
@@ -296,6 +346,7 @@
                   </VBox>
                   <VBox prefHeight="190.0" prefWidth="250.0" spacing="5.0" VBox.vgrow="ALWAYS">
                      <children>
+                        <Pane prefWidth="200.0" VBox.vgrow="ALWAYS" />
                         <Separator prefWidth="200.0">
                            <VBox.margin>
                               <Insets bottom="10.0" />
@@ -312,8 +363,14 @@
                                  <font>
                                     <Font name="Arial Rounded MT Bold" size="10.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
                               </Label>
                            </children>
+                           <VBox.margin>
+                              <Insets />
+                           </VBox.margin>
                         </HBox>
                         <HBox prefHeight="25.0" prefWidth="200.0">
                            <children>
@@ -326,6 +383,9 @@
                                  <font>
                                     <Font name="Arial Rounded MT Bold" size="10.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
                               </Label>
                            </children>
                         </HBox>
@@ -340,6 +400,9 @@
                                  <font>
                                     <Font name="Arial Rounded MT Bold" size="10.0" />
                                  </font>
+                                 <HBox.margin>
+                                    <Insets right="10.0" />
+                                 </HBox.margin>
                               </Label>
                            </children>
                         </HBox>
@@ -358,15 +421,24 @@
                               </Label>
                            </children>
                         </HBox>
-                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="246.0" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="Process to Payment">
+                        <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="246.0" styleClass="payment-btn" stylesheets="@../style/dashBoard.css" text="Process to Payment" textFill="WHITE">
                            <VBox.margin>
                               <Insets top="5.0" />
                            </VBox.margin>
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="14.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                      </children>
                      <padding>
                         <Insets left="10.0" right="10.0" top="10.0" />
                      </padding>
+                     <VBox.margin>
+                        <Insets bottom="30.0" />
+                     </VBox.margin>
                   </VBox>
                </children>
             </VBox>
@@ -385,10 +457,16 @@
                            </HBox.margin>
                         </Label>
                         <Pane prefHeight="40.0" HBox.hgrow="ALWAYS" />
-                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="117.0" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="Recent Order ...">
+                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" styleClass="recentorder-back" stylesheets="@../style/dashBoard.css" text="Recent Order ...">
                            <HBox.margin>
                               <Insets right="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="12.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                      </children>
                      <padding>
@@ -402,7 +480,7 @@
                               <Insets />
                            </HBox.margin>
                            <styleClass>
-                              <String fx:value="order-item" />
+                              <String fx:value="dinein-card" />
                               <String fx:value="shadow" />
                            </styleClass>
                            <children>
@@ -414,42 +492,14 @@
                                     <Insets left="10.0" top="10.0" />
                                  </VBox.margin>
                               </Label>
-                              <HBox prefHeight="32.0" prefWidth="176.0" spacing="10.0">
-                                 <children>
-                                    <Label text="Order">
-                                       <font>
-                                          <Font name="Arial Rounded MT Bold" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="#25564">
-                                       <font>
-                                          <Font name="Arial Rounded MT Bold" size="12.0" />
-                                       </font>
-                                    </Label>
-                                    <Label text="Ready">
-                                       <font>
-                                          <Font name="Arial Rounded MT Bold" size="12.0" />
-                                       </font>
-                                    </Label>
-                                 </children>
-                                 <VBox.margin>
-                                    <Insets left="10.0" right="10.0" />
-                                 </VBox.margin>
-                              </HBox>
-                              <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
-                              <HBox prefHeight="100.0" prefWidth="200.0">
-                                 <children>
-                                    <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="12 items" />
-                                    <Pane HBox.hgrow="ALWAYS" />
-                                    <Button mnemonicParsing="false" prefHeight="30.0" prefWidth="70.0" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="It's Done" />
-                                 </children>
-                                 <padding>
-                                    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-                                 </padding>
-                                 <VBox.margin>
-                                    <Insets bottom="10.0" />
-                                 </VBox.margin>
-                              </HBox>
+                              <AreaChart fx:id="dineinChart">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" fx:id="xAxis" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis fx:id="yAxis" side="LEFT" />
+                                </yAxis>
+                              </AreaChart>
                            </children>
                         </VBox>
                         <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@../style/dashBoard.css" HBox.hgrow="ALWAYS">
@@ -457,7 +507,7 @@
                               <Insets />
                            </HBox.margin>
                            <styleClass>
-                              <String fx:value="order-item" />
+                              <String fx:value="takeaway-card" />
                               <String fx:value="shadow" />
                            </styleClass>
                            <children>
@@ -469,11 +519,19 @@
                                     <Insets left="10.0" top="10.0" />
                                  </VBox.margin>
                               </Label>
+                              <BarChart fx:id="takeawayChart">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </BarChart>
                            </children>
                         </VBox>
                         <VBox prefHeight="200.0" prefWidth="100.0" stylesheets="@../style/dashBoard.css" HBox.hgrow="ALWAYS">
                            <styleClass>
-                              <String fx:value="order-item" />
+                              <String fx:value="dilivery-card" />
                               <String fx:value="shadow" />
                            </styleClass>
                            <children>
@@ -485,6 +543,14 @@
                                     <Insets left="10.0" top="10.0" />
                                  </VBox.margin>
                               </Label>
+                              <AreaChart fx:id="deleveryChart">
+                                <xAxis>
+                                  <CategoryAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </AreaChart>
                            </children>
                         </VBox>
                      </children>
@@ -510,7 +576,7 @@
                               <Insets left="10.0" top="10.0" />
                            </HBox.margin>
                         </Label>
-                        <HBox alignment="CENTER" styleClass="serch-box" stylesheets="@../style/dashBoard.css">
+                        <HBox alignment="CENTER" prefHeight="39.0" prefWidth="321.0" styleClass="serch-box" stylesheets="@../style/dashBoard.css">
                            <children>
                               <ImageView fitHeight="22.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
@@ -520,7 +586,7 @@
                                     <Insets left="10.0" />
                                  </HBox.margin>
                               </ImageView>
-                              <TextField prefHeight="30.0" prefWidth="168.0" promptText="Search Items ..." styleClass="transparent" stylesheets="@../style/dashBoard.css">
+                              <TextField prefHeight="30.0" prefWidth="275.0" promptText="Search Items ..." styleClass="transparent" stylesheets="@../style/dashBoard.css">
                                  <font>
                                     <Font name="Arial Rounded MT Bold" size="12.0" />
                                  </font>
@@ -531,16 +597,22 @@
                            </HBox.margin>
                         </HBox>
                         <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="74.0" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="Popular ...">
+                        <Button mnemonicParsing="false" prefHeight="35.0" prefWidth="120.0" styleClass="popular" stylesheets="@../style/dashBoard.css" text="Popular ...">
                            <HBox.margin>
                               <Insets right="10.0" top="10.0" />
                            </HBox.margin>
+                           <font>
+                              <Font name="Arial Rounded MT Bold" size="12.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
                      </children>
                   </HBox>
                   <HBox prefWidth="200.0" spacing="5.0">
                      <children>
-                        <VBox prefWidth="100.0" stylesheets="@../style/dashBoard.css">
+                        <VBox stylesheets="@../style/dashBoard.css">
                            <children>
                               <HBox prefHeight="70.0" prefWidth="250.0">
                                  <children>
@@ -586,13 +658,27 @@
                               </Label>
                               <HBox prefHeight="15.0" prefWidth="208.0" spacing="50.0">
                                  <children>
-                                    <Button mnemonicParsing="false" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="-" />
+                                    <Button mnemonicParsing="false" styleClass="amount-icon" stylesheets="@../style/dashBoard.css">
+                                       <graphic>
+                                          <FontAwesomeIcon fill="WHITE" iconName="MINUS" />
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                     <Label text="5">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Button mnemonicParsing="false" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="+" />
+                                    <Button mnemonicParsing="false" styleClass="amount-icon" stylesheets="@../style/dashBoard.css">
+                                       <graphic>
+                                          <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                  </children>
                                  <padding>
                                     <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
@@ -603,7 +689,7 @@
                               </HBox>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Button alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="198.0" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="Add To Cart" textFill="WHITE">
+                                    <Button alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="198.0" styleClass="addtocart-btn" stylesheets="@../style/dashBoard.css" text="Add To Cart" textFill="WHITE">
                                        <graphic>
                                           <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
                                        </graphic>
@@ -613,6 +699,9 @@
                                        <padding>
                                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                        </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </Button>
                                  </children>
                                  <VBox.margin>
@@ -628,12 +717,12 @@
                               <String fx:value="shadow" />
                            </styleClass>
                         </VBox>
-                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                        <Pane HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Pane>
-                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="160.0" prefWidth="100.0" stylesheets="@../style/dashBoard.css">
+                        <VBox layoutX="10.0" layoutY="10.0" stylesheets="@../style/dashBoard.css">
                            <children>
                               <HBox prefHeight="70.0" prefWidth="250.0">
                                  <children>
@@ -679,13 +768,27 @@
                               </Label>
                               <HBox prefHeight="15.0" prefWidth="208.0" spacing="50.0">
                                  <children>
-                                    <Button mnemonicParsing="false" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="-" />
+                                    <Button mnemonicParsing="false" styleClass="amount-icon" stylesheets="@../style/dashBoard.css">
+                                       <graphic>
+                                          <FontAwesomeIcon fill="WHITE" iconName="MINUS" />
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                     <Label text="5">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Button mnemonicParsing="false" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="+" />
+                                    <Button mnemonicParsing="false" styleClass="amount-icon" stylesheets="@../style/dashBoard.css">
+                                       <graphic>
+                                          <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                  </children>
                                  <padding>
                                     <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
@@ -696,7 +799,7 @@
                               </HBox>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Button alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="197.0" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="Add To Cart" textFill="WHITE">
+                                    <Button alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="197.0" styleClass="addtocart-btn" stylesheets="@../style/dashBoard.css" text="Add To Cart" textFill="WHITE">
                                        <graphic>
                                           <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
                                        </graphic>
@@ -706,6 +809,9 @@
                                        <padding>
                                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                        </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </Button>
                                  </children>
                                  <VBox.margin>
@@ -721,12 +827,12 @@
                               <String fx:value="shadow" />
                            </styleClass>
                         </VBox>
-                        <Pane layoutX="238.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                        <Pane layoutX="238.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Pane>
-                        <VBox layoutX="297.0" layoutY="10.0" prefHeight="160.0" prefWidth="100.0" stylesheets="@../style/dashBoard.css">
+                        <VBox layoutX="297.0" layoutY="10.0" stylesheets="@../style/dashBoard.css">
                            <children>
                               <HBox prefHeight="70.0" prefWidth="250.0">
                                  <children>
@@ -772,13 +878,27 @@
                               </Label>
                               <HBox prefHeight="15.0" prefWidth="208.0" spacing="50.0">
                                  <children>
-                                    <Button mnemonicParsing="false" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="-" />
+                                    <Button mnemonicParsing="false" styleClass="amount-icon" stylesheets="@../style/dashBoard.css">
+                                       <graphic>
+                                          <FontAwesomeIcon fill="WHITE" iconName="MINUS" />
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                     <Label text="5">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Button mnemonicParsing="false" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="+" />
+                                    <Button mnemonicParsing="false" styleClass="amount-icon" stylesheets="@../style/dashBoard.css">
+                                       <graphic>
+                                          <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                  </children>
                                  <padding>
                                     <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
@@ -789,7 +909,7 @@
                               </HBox>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Button contentDisplay="RIGHT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="195.0" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="Add To Cart" textFill="WHITE">
+                                    <Button contentDisplay="RIGHT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="195.0" styleClass="addtocart-btn" stylesheets="@../style/dashBoard.css" text="Add To Cart" textFill="WHITE">
                                        <graphic>
                                           <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
                                        </graphic>
@@ -799,6 +919,9 @@
                                        <padding>
                                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                        </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </Button>
                                  </children>
                                  <padding>
@@ -817,12 +940,12 @@
                               <String fx:value="shadow" />
                            </styleClass>
                         </VBox>
-                        <Pane layoutX="466.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                        <Pane layoutX="466.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Pane>
-                        <VBox layoutX="485.0" layoutY="10.0" prefHeight="160.0" prefWidth="100.0" stylesheets="@../style/dashBoard.css">
+                        <VBox layoutX="485.0" layoutY="10.0" stylesheets="@../style/dashBoard.css">
                            <children>
                               <HBox prefHeight="70.0" prefWidth="250.0">
                                  <children>
@@ -868,13 +991,27 @@
                               </Label>
                               <HBox prefHeight="15.0" prefWidth="208.0" spacing="50.0">
                                  <children>
-                                    <Button mnemonicParsing="false" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="-" />
+                                    <Button mnemonicParsing="false" styleClass="amount-icon" stylesheets="@../style/dashBoard.css">
+                                       <graphic>
+                                          <FontAwesomeIcon fill="WHITE" iconName="MINUS" />
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                     <Label text="5">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Button mnemonicParsing="false" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="+" />
+                                    <Button mnemonicParsing="false" styleClass="amount-icon" stylesheets="@../style/dashBoard.css">
+                                       <graphic>
+                                          <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                  </children>
                                  <padding>
                                     <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
@@ -885,7 +1022,7 @@
                               </HBox>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Button contentDisplay="RIGHT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="195.0" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="Add To Cart" textFill="WHITE">
+                                    <Button contentDisplay="RIGHT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="195.0" styleClass="addtocart-btn" stylesheets="@../style/dashBoard.css" text="Add To Cart" textFill="WHITE">
                                        <graphic>
                                           <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
                                        </graphic>
@@ -895,6 +1032,9 @@
                                        <padding>
                                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                        </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </Button>
                                  </children>
                                  <padding>
@@ -915,12 +1055,12 @@
                         </VBox>
                      </children>
                      <VBox.margin>
-                        <Insets left="10.0" right="10.0" />
+                        <Insets bottom="10.0" left="10.0" right="10.0" />
                      </VBox.margin>
                   </HBox>
                   <HBox layoutX="20.0" layoutY="323.0" prefWidth="200.0" spacing="5.0">
                      <children>
-                        <VBox prefWidth="100.0" stylesheets="@../style/dashBoard.css">
+                        <VBox stylesheets="@../style/dashBoard.css">
                            <children>
                               <HBox prefHeight="70.0" prefWidth="250.0">
                                  <children>
@@ -966,13 +1106,27 @@
                               </Label>
                               <HBox prefHeight="15.0" prefWidth="208.0" spacing="50.0">
                                  <children>
-                                    <Button mnemonicParsing="false" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="-" />
+                                    <Button mnemonicParsing="false" styleClass="amount-icon" stylesheets="@../style/dashBoard.css">
+                                       <graphic>
+                                          <FontAwesomeIcon fill="WHITE" iconName="MINUS" />
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                     <Label text="5">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Button mnemonicParsing="false" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="+" />
+                                    <Button mnemonicParsing="false" styleClass="amount-icon" stylesheets="@../style/dashBoard.css">
+                                       <graphic>
+                                          <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                  </children>
                                  <padding>
                                     <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
@@ -983,7 +1137,7 @@
                               </HBox>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Button alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="198.0" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="Add To Cart" textFill="WHITE">
+                                    <Button alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="198.0" styleClass="addtocart-btn" stylesheets="@../style/dashBoard.css" text="Add To Cart" textFill="WHITE">
                                        <graphic>
                                           <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
                                        </graphic>
@@ -993,6 +1147,9 @@
                                        <padding>
                                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                        </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </Button>
                                  </children>
                                  <VBox.margin>
@@ -1011,12 +1168,12 @@
                               <Insets />
                            </HBox.margin>
                         </VBox>
-                        <Pane prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                        <Pane HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Pane>
-                        <VBox layoutX="10.0" layoutY="10.0" prefHeight="160.0" prefWidth="100.0" stylesheets="@../style/dashBoard.css">
+                        <VBox layoutX="10.0" layoutY="10.0" stylesheets="@../style/dashBoard.css">
                            <children>
                               <HBox prefHeight="70.0" prefWidth="250.0">
                                  <children>
@@ -1062,13 +1219,27 @@
                               </Label>
                               <HBox prefHeight="15.0" prefWidth="208.0" spacing="50.0">
                                  <children>
-                                    <Button mnemonicParsing="false" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="-" />
+                                    <Button mnemonicParsing="false" styleClass="amount-icon" stylesheets="@../style/dashBoard.css">
+                                       <graphic>
+                                          <FontAwesomeIcon fill="WHITE" iconName="MINUS" />
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                     <Label text="5">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Button mnemonicParsing="false" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="+" />
+                                    <Button mnemonicParsing="false" styleClass="amount-icon" stylesheets="@../style/dashBoard.css">
+                                       <graphic>
+                                          <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                  </children>
                                  <padding>
                                     <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
@@ -1079,7 +1250,7 @@
                               </HBox>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Button alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="197.0" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="Add To Cart" textFill="WHITE">
+                                    <Button alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="197.0" styleClass="addtocart-btn" stylesheets="@../style/dashBoard.css" text="Add To Cart" textFill="WHITE">
                                        <graphic>
                                           <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
                                        </graphic>
@@ -1089,6 +1260,9 @@
                                        <padding>
                                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                        </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </Button>
                                  </children>
                                  <VBox.margin>
@@ -1104,12 +1278,12 @@
                               <String fx:value="shadow" />
                            </styleClass>
                         </VBox>
-                        <Pane layoutX="238.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                        <Pane layoutX="238.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Pane>
-                        <VBox layoutX="297.0" layoutY="10.0" prefHeight="160.0" prefWidth="100.0" stylesheets="@../style/dashBoard.css">
+                        <VBox layoutX="297.0" layoutY="10.0" stylesheets="@../style/dashBoard.css">
                            <children>
                               <HBox prefHeight="70.0" prefWidth="250.0">
                                  <children>
@@ -1155,13 +1329,27 @@
                               </Label>
                               <HBox prefHeight="15.0" prefWidth="208.0" spacing="50.0">
                                  <children>
-                                    <Button mnemonicParsing="false" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="-" />
+                                    <Button mnemonicParsing="false" styleClass="amount-icon" stylesheets="@../style/dashBoard.css">
+                                       <graphic>
+                                          <FontAwesomeIcon fill="WHITE" iconName="MINUS" />
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                     <Label text="5">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Button mnemonicParsing="false" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="+" />
+                                    <Button mnemonicParsing="false" styleClass="amount-icon" stylesheets="@../style/dashBoard.css">
+                                       <graphic>
+                                          <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                  </children>
                                  <padding>
                                     <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
@@ -1172,7 +1360,7 @@
                               </HBox>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Button contentDisplay="RIGHT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="195.0" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="Add To Cart" textFill="WHITE">
+                                    <Button contentDisplay="RIGHT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="195.0" styleClass="addtocart-btn" stylesheets="@../style/dashBoard.css" text="Add To Cart" textFill="WHITE">
                                        <graphic>
                                           <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
                                        </graphic>
@@ -1182,6 +1370,9 @@
                                        <padding>
                                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                        </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </Button>
                                  </children>
                                  <padding>
@@ -1200,12 +1391,12 @@
                               <String fx:value="shadow" />
                            </styleClass>
                         </VBox>
-                        <Pane layoutX="466.0" layoutY="10.0" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                        <Pane layoutX="466.0" layoutY="10.0" HBox.hgrow="ALWAYS">
                            <HBox.margin>
                               <Insets />
                            </HBox.margin>
                         </Pane>
-                        <VBox layoutX="485.0" layoutY="10.0" prefHeight="160.0" prefWidth="100.0" stylesheets="@../style/dashBoard.css">
+                        <VBox layoutX="485.0" layoutY="10.0" stylesheets="@../style/dashBoard.css">
                            <children>
                               <HBox prefHeight="70.0" prefWidth="250.0">
                                  <children>
@@ -1251,13 +1442,27 @@
                               </Label>
                               <HBox prefHeight="15.0" prefWidth="208.0" spacing="50.0">
                                  <children>
-                                    <Button mnemonicParsing="false" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="-" />
+                                    <Button mnemonicParsing="false" styleClass="amount-icon" stylesheets="@../style/dashBoard.css">
+                                       <graphic>
+                                          <FontAwesomeIcon fill="WHITE" iconName="MINUS" />
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                     <Label text="5">
                                        <font>
                                           <Font name="Arial Rounded MT Bold" size="15.0" />
                                        </font>
                                     </Label>
-                                    <Button mnemonicParsing="false" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="+" />
+                                    <Button mnemonicParsing="false" styleClass="amount-icon" stylesheets="@../style/dashBoard.css">
+                                       <graphic>
+                                          <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
+                                       </graphic>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Button>
                                  </children>
                                  <padding>
                                     <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
@@ -1268,7 +1473,7 @@
                               </HBox>
                               <HBox alignment="CENTER">
                                  <children>
-                                    <Button contentDisplay="RIGHT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="195.0" styleClass="button-bacground" stylesheets="@../style/dashBoard.css" text="Add To Cart" textFill="WHITE">
+                                    <Button contentDisplay="RIGHT" graphicTextGap="20.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="195.0" styleClass="addtocart-btn" stylesheets="@../style/dashBoard.css" text="Add To Cart" textFill="WHITE">
                                        <graphic>
                                           <FontAwesomeIcon fill="WHITE" iconName="PLUS" />
                                        </graphic>
@@ -1278,6 +1483,9 @@
                                        <padding>
                                           <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                                        </padding>
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
                                     </Button>
                                  </children>
                                  <padding>
