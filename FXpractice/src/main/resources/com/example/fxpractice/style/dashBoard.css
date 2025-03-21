@@ -63,7 +63,7 @@
 }
 .addtocart-btn{
     -fx-background-radius:10px;
-    -fx-background-color: #ccffcc;
+    -fx-background-color: #6699ff;
 }
 .addtocart-btn:hover{
     -fx-background-color: #6699ff;
@@ -88,5 +88,5 @@
 }
 .amount-icon{
      -fx-background-radius:20px;
-     -fx-background-color: #6699ff;
+     -fx-background-color: #9999ff;
 }
