@@ -1,0 +1,92 @@
+.side-bar{
+    -fx-background-color: #6699ff;
+    -fx-background-radius:10px;
+}
+.side-bar-header{
+    -fx-background-radius:10px;
+}
+.button-bacground{
+      -fx-background-radius:10px;
+     -fx-background-color: hsba(208, 100%, 57%, 0.3);
+}
+.button-bacground:hover{
+     -fx-background-color: hsba(208, 100%, 57%, 0.6);
+}
+.right-side-bar{
+    -fx-background-color: #ffffff;
+}
+.shadow{
+    -fx-effect : dropshadow(three-pass-box,rgba(0,0,0,0.1) , 10.0 , 0.0 , 0.0 , 10.0)
+}
+.ready-text{
+       -fx-background-color: #ccccff;
+}
+.order-item{
+    -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-background-radius:10px;
+    -fx-border-radius: 10px,0px,30px,0px;
+}
+.transparent {
+    -fx-background-color: rgba(0,0,0,0)
+}
+.serch-box{
+       -fx-background-color: #ffffff;
+    -fx-border-color: #cccccc;
+    -fx-background-radius:10px;
+    -fx-border-radius: 10px;
+}
+.recentorder-back{
+ -fx-background-color: #cccccc;
+     -fx-background-radius:10px;
+    -fx-border-radius: 10px;
+}
+.recentorder-back:hover{
+      -fx-effect : dropshadow(three-pass-box,rgba(0,0,0,0.1) , 10.0 , 0.0 , 0.0 , 10.0)
+}
+
+.popular{
+    -fx-background-color: #cccccc;
+     -fx-background-radius:10px;
+    -fx-border-radius: 10px;
+}
+.popular:hover{
+      -fx-effect : dropshadow(three-pass-box,rgba(0,0,0,0.1) , 10.0 , 0.0 , 0.0 , 10.0)
+}
+.payment-btn{
+    -fx-background-radius:10px;
+    -fx-background-color: #6699ff;
+}
+.payment-btn:hover{
+    -fx-background-color: #00cc7c;
+    -fx-effect : dropshadow(three-pass-box,rgba(0,0,0,0.1) , 10.0 , 0.0 , 0.0 , 10.0);
+}
+.addtocart-btn{
+    -fx-background-radius:10px;
+    -fx-background-color: #ccffcc;
+}
+.addtocart-btn:hover{
+    -fx-background-color: #6699ff;
+}
+.dinein-card{
+    -fx-background-color: #ffcccc;
+    -fx-border-color: #cccccc;
+    -fx-background-radius:10px;
+    -fx-border-radius: 10px,0px,30px,0px;
+}
+.takeaway-card{
+    -fx-background-color: #ccccff;
+    -fx-border-color: #cccccc;
+    -fx-background-radius:10px;
+    -fx-border-radius: 10px,0px,30px,0px;
+}
+.dilivery-card{
+    -fx-background-color: #ccffcc;
+    -fx-border-color: #cccccc;
+    -fx-background-radius:10px;
+    -fx-border-radius: 10px,0px,30px,0px;
+}
+.amount-icon{
+     -fx-background-radius:20px;
+     -fx-background-color: #6699ff;
+}

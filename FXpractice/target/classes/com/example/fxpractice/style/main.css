@@ -1,0 +1,12 @@
+.primary-gradient{
+    -fx-background-color: linear-gradient(to top, #000428, #004E92);
+}
+.full-width-button {
+    -fx-max-width: infinity;
+}
+.bg-primary-20{
+    -fx-background-color: hsba(208, 100%, 57%, 0.3);
+}
+.bg-primary-20:hover{
+    -fx-background-color: hsba(208, 100%, 57%, 0.6);
+}
